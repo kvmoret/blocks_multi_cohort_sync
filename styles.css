@@ -1,0 +1,21 @@
+.getCohorts select, .getGroups select {
+    width: 300px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+.getCourses select {
+    width: 300px;
+    max-height: 600px;
+    margin-right: 10px;
+}
+
+.block-left, .block-right {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+
+.block-right {
+  padding-top: 12px;
+}
