@@ -1,8 +1,8 @@
-# blocks_multi_cohort_sync
+# blocks_multi_cohorts
 Moodle plugin for cohort sync enrollment.
 
-With this plugin you can enrol cohort sync in multiple courses in one click. 
+With this plugin you can enrol cohort sync enrolment into multiple courses in one click. 
 
-Unzip the file and name it multi_cohort_sync.
+Unzip the file and name it multi_cohorts.
 Place the file in the block section.
 
