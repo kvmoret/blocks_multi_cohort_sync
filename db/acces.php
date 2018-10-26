@@ -17,7 +17,7 @@
 /**
  * HTML block caps.
  *
- * @package    block_multi_cohorts
+ * @package    simplehtml
  * @copyright  Koen Moret <k.moret@agriholland.nl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

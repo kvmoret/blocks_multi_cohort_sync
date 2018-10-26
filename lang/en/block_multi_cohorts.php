@@ -36,4 +36,3 @@
  $string['groupname'] = ' cohort';
  $string['nocohort'] = 'No cohort selected*';
  $string['nocourse'] = 'No course selected*';
- $string['privacy:metadata'] = 'The multi cohort block only displays existing course and groupname data.';

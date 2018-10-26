@@ -17,7 +17,7 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_multi_cohorts
+ * @package   multi_cohorts
  * @copyright K.V. Moret <k.moret@agriholland.nl>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -41,6 +41,11 @@
 
        $this->title = get_string('pluginname', 'block_multi_cohorts');
 
+       //var_dump( (array) $my_user); // SHOULD RETURN EVERYTHING
+
+       //$this->content->text .= "<div class=\"classname\"> <div> $my_user->firstname $my_user->lastname</div>";
+       //$this->content->text .= '</div>';
+
        global $COURSE;
 
        $url = new moodle_url('/blocks/multi_cohorts/view.php', array('blockid' => $this->instance->id, 'courseid' => $COURSE->id));
@@ -49,11 +54,6 @@
        return $this->content;
     }
 
-    public function instance_allow_multiple() {
-      return false;
-    }
 
-    public function has_config() {
-      return false;
-    }
+
 }
