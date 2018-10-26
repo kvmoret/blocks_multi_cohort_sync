@@ -147,9 +147,9 @@ if(isset($_POST['submit'])){
                $selected_gro_id = '0';
                $selected_gro_name = get_string('nogroup', 'block_multi_cohorts');
              }
-             echo "<br> ID: ".$selected_gro_id;
-             echo "<br> ID: ".$selected_coh[0];
-             echo "<br> ID: ".$course[0];
+             //echo "<br> ID: ".$selected_gro_id;
+             //echo "<br> ID: ".$selected_coh[0];
+             //echo "<br> ID: ".$course[0];
              $i = 1;
              $records = array();
              if(!$DB->record_exists('enrol', array('courseid'=>$course[0],'customint1'=>$selected_coh[0]))){
@@ -172,12 +172,12 @@ if(isset($_POST['submit'])){
                $DB->execute('UPDATE {enrol} SET customint2 =?, timecreated =?, timemodified =? WHERE courseid =? AND customint1 =?', array($selected_gro_id, $timecreated, $timemodified, $course[0], $selected_coh[0]));
                if($selected_gro_id == '0'){
                  $groupremove = get_string('groupname', 'block_multi_cohorts');
-                 $selected_gro_name = $selected_coh[1].$groupremove;
-                 $result = $DB->get_records_sql('SELECT id FROM {groups} WHERE courseid = ? AND name =?', array($course[0],$selected_gro_name));
+                 $selected_gro_remo = $selected_coh[1].$groupremove;
+                 $result = $DB->get_records_sql('SELECT id FROM {groups} WHERE courseid = ? AND name =?', array($course[0],$selected_gro_remo));
                    foreach ($result as $groupid){
                      $selected_gro_id = $groupid->id;
                    }
-                 $DB->delete_records('groups', array('courseid' => $course[0], 'name' => $selected_gro_name));
+                 $DB->delete_records('groups', array('courseid' => $course[0], 'name' => $selected_gro_remo));
                  $DB->delete_records('groups_members', array('groupid' => $selected_gro_id));
                }
              }
