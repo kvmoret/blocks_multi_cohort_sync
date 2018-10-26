@@ -71,7 +71,6 @@ if(isset($_POST['submit'])){
               $coursenumber[] = $course[0];
            }
            $records = array();
-           //$user_enrol_courses = array();
            $j = 1;
            foreach ($selected_cor as $course) {
              //echo "<br> ronde ".$j;
@@ -80,7 +79,6 @@ if(isset($_POST['submit'])){
                //echo "<br> Newgroup";
                $groupadd = get_string('groupname', 'block_multi_cohorts');
                $selected_gro_name = $selected_coh[1].$groupadd;
-
                $i = 1;
                $records = array();
                $coursesid = array();
