@@ -1,4 +1,22 @@
 <?php
+// Dit is het Engelstalige bestand voor uw blok. Als u geen Engelse spreker bent, kunt u 'en'
+// vervangen door uw juiste taalcode. Alle taalbestanden voor blokken gaan onder de / lang-submap
+// van de installatiemap van het blok.
+// Moodle 2.0 en hoger vereist een naam voor onze plug-in die wordt weergegeven op de upgradepagina.
+// We stellen deze waarde in, samen met de mogelijkheden die we hebben gecreëerd en eventuele andere
+// taalstrings die we binnen het blok willen gebruiken, in een taalpakket zoals eerder genoemd
+// (hetzelfde bestand waarin we onze reeks plaatsen voor de plugin-titel).
+
+// De mogelijkheden die hierboven zijn toegevoegd, hebben beschrijvingen nodig voor pagina's waarop
+// functies kunnen worden ingesteld. Deze moeten ook aan het taalbestand worden toegevoegd.
+
+/**
+ * Version details
+ *
+ * @package    block_multi_cohorts
+ * @copyright  K.V. Moret <k.moret@agriholland.nl>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 require_once('../../config.php');
 global $DB, $OUTPUT, $PAGE;
@@ -129,9 +147,9 @@ if(isset($_POST['submit'])){
                $selected_gro_id = '0';
                $selected_gro_name = get_string('nogroup', 'block_multi_cohorts');
              }
-             //echo "<br> ID: ".$selected_gro_id;
-             //echo "<br> ID: ".$selected_coh[0];
-             //echo "<br> ID: ".$course[0];
+             echo "<br> ID: ".$selected_gro_id;
+             echo "<br> ID: ".$selected_coh[0];
+             echo "<br> ID: ".$course[0];
              $i = 1;
              $records = array();
              if(!$DB->record_exists('enrol', array('courseid'=>$course[0],'customint1'=>$selected_coh[0]))){
@@ -152,6 +170,16 @@ if(isset($_POST['submit'])){
                $timecreated = time();
                $timemodified = time();
                $DB->execute('UPDATE {enrol} SET customint2 =?, timecreated =?, timemodified =? WHERE courseid =? AND customint1 =?', array($selected_gro_id, $timecreated, $timemodified, $course[0], $selected_coh[0]));
+               if($selected_gro_id == '0'){
+                 $groupremove = get_string('groupname', 'block_multi_cohorts');
+                 $selected_gro_name = $selected_coh[1].$groupremove;
+                 $result = $DB->get_records_sql('SELECT id FROM {groups} WHERE courseid = ? AND name =?', array($course[0],$selected_gro_name));
+                   foreach ($result as $groupid){
+                     $selected_gro_id = $groupid->id;
+                   }
+                 $DB->delete_records('groups', array('courseid' => $course[0], 'name' => $selected_gro_name));
+                 $DB->delete_records('groups_members', array('groupid' => $selected_gro_id));
+               }
              }
              if(isset($records)){
                $DB->insert_records('enrol', $records);
