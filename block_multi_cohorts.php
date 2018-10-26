@@ -17,7 +17,7 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_multi_cohorts_sync
+ * @package   block_multi_cohorts
  * @copyright K.V. Moret <k.moret@agriholland.nl>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

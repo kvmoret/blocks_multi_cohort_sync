@@ -1,4 +1,4 @@
-<?
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,8 +22,25 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace block_multi_cohorts\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'block_multi_cohorts';  // Recommended since 2.0.2 (MDL-26035). Required since 3.0 (MDL-48494)
-$plugin->version = 2018102522;  // YYYYMMDDHH (year, month, day, 24-hr time)
-$plugin->requires = 2017111300; // YYYYMMDDHH (This is the release version for Moodle 2.0)
+/**
+ * Privacy Subsystem for block_blog_menu implementing null_provider.
+ *
+ * @copyright  2018 Zig Tan <zig@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

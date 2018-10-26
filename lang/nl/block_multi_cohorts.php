@@ -35,3 +35,4 @@
  $string['groupadded'] = 'En de volgende groep is gekoppeld';
  $string['nocohort'] = 'Geen sitegroep geselecteerd*';
  $string['nocourse'] = 'Geen cursus geselecteerd*';
+ $string['privacy:metadata'] = 'De multi cohort block toont alleen gegevens van bestaande cursus en groepsnamen.';
