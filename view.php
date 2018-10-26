@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
                 $coursesid = array();
                 foreach ($coursenumber as $coursenum) {
                   if(!$DB->record_exists('groups', array('courseid'=>$coursenum,'name'=>$selected_gro))){
-                    echo "<br>TEST".$coursenum." / ".$selected_coh[0];
+                    //echo "<br>TEST".$coursenum." / ".$selected_coh[0];
                     if(!$DB->record_exists('enrol', array('enrol'=>'cohort','courseid'=>$coursenum,'customint1'=>$selected_coh[0]))){
                       //$record = '$record'.$i;
                       $record = new stdClass();
@@ -114,12 +114,9 @@ if(isset($_POST['submit'])){
                       $record->name = $selected_gro;
                       $record->timecreated = time();
                       $record->timemodified = time();
-                      //$records[] = $record;
                       $coursesid[] = $coursenum;
                       $DB->insert_record('groups', $record);
-                      //$i++;
                     }else{
-                      echo "<br>EXCIST!!! ".$selected_gro." / ".$coursenum;
                       $records_id = $DB->get_records_sql('SELECT id FROM {groups} WHERE courseid =? AND name =?', array($coursenum,$selected_gro));
 
                       foreach ($records_id as $custom_id){

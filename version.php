@@ -1,4 +1,4 @@
-<?
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
 /**
  * HTML block caps.
  *
- * @package    block_multi_cohorts
+ * @package    simplehtml
  * @copyright  Koen Moret <k.moret@agriholland.nl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,5 +25,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_multi_cohorts';  // Recommended since 2.0.2 (MDL-26035). Required since 3.0 (MDL-48494)
-$plugin->version = 2018102522;  // YYYYMMDDHH (year, month, day, 24-hr time)
-$plugin->requires = 2017111300; // YYYYMMDDHH (This is the release version for Moodle 2.0)
+$plugin->version = 2018101013;  // YYYYMMDDHH (year, month, day, 24-hr time)
+$plugin->requires = 2018051700; // YYYYMMDDHH (This is the release version for Moodle 3.5)
