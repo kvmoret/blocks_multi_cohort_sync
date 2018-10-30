@@ -127,7 +127,7 @@ if(isset($_POST['submit'])){
                    $groupitemid = $gro_itemid->itemid;
                    $groupitemid++;
                  }
-                 echo "<br> groupitemid: ".$groupitemid;
+                 //echo "<br> groupitemid: ".$groupitemid;
                  $i = 1;
                  $records = array();
                  foreach ($result_coh_members as $coh_members) {
