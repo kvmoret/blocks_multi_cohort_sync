@@ -122,7 +122,12 @@ if(isset($_POST['submit'])){
                  foreach ($result_gro_id as $gro_id){
                    $groupid = $gro_id->id;
                  }
-                 //echo "<br> groupid: ".$groupid;
+                 $result_gro_itemid = $DB->get_records_sql('SELECT itemid FROM {groups_members} ORDER BY itemid DESC LIMIT 1');
+                 foreach ($result_gro_itemid as $gro_itemid){
+                   $groupitemid = $gro_itemid->itemid;
+                   $groupitemid++;
+                 }
+                 echo "<br> groupitemid: ".$groupitemid;
                  $i = 1;
                  $records = array();
                  foreach ($result_coh_members as $coh_members) {
@@ -133,6 +138,7 @@ if(isset($_POST['submit'])){
                    $record->userid = $coh_members->userid;
                    $record->timeadded = time();
                    $record->component = 'enrol_cohort';
+                   $record->itemid = $groupitemid;
                    $records[] = $record;
                    $i++;
                  }
