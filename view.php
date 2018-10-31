@@ -27,14 +27,14 @@ $courseid = required_param('courseid', PARAM_INT);
 $blockid = required_param('blockid', PARAM_INT);
 $id = optional_param('id', 0, PARAM_INT);
 if (!$course = $DB->get_record('course', array('id' => $courseid))) {
-    print_error('invalidcourse', 'multi_cohorts_sync', $courseid);
+    print_error('invalidcourse', 'multi_cohorts', $courseid);
 }
 require_login($course);
-$PAGE->set_url('/blocks/multi_cohorts_sync/view.php', array('id' => $courseid));
+$PAGE->set_url('/blocks/multi_cohorts/view.php', array('id' => $courseid));
 $PAGE->set_pagelayout('standard');
 $PAGE->set_heading(get_string('linkname', 'block_multi_cohorts'));
 $settingsnode = $PAGE->settingsnav->add(get_string('pluginname', 'block_multi_cohorts'));
-$editurl = new moodle_url('/blocks/multi_cohorts_sync/view.php', array('id' => $id, 'courseid' => $courseid, 'blockid' => $blockid));
+$editurl = new moodle_url('/blocks/multi_cohorts/view.php', array('id' => $id, 'courseid' => $courseid, 'blockid' => $blockid));
 $editnode = $settingsnode->add(get_string('addpage', 'block_multi_cohorts'), $editurl);
 $editnode->make_active();
 echo $OUTPUT->header();
