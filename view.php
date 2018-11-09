@@ -52,7 +52,7 @@ echo $selectcohort;
 echo "<br>";
 echo "<h3>".get_string('selectcourse', 'block_multi_cohorts').":</h3>";
 $sql = "SELECT id, fullname
-        FROM {course}";
+        FROM {course} WHERE NOT format = 'site'";
 $result = $DB->get_recordset_sql($sql);
 $totalrecords = $DB->count_records('course');
 $height = 21.25 * $totalrecords;
